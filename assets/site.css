@@ -12,7 +12,7 @@
   --line: rgba(13, 27, 42, 0.14);
   --muted: rgba(13, 27, 42, 0.68);
   --link: var(--denim);
-  --sample: var(--denim);
+  --sample: var(--fg);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -22,7 +22,7 @@
     --line: rgba(245, 243, 238, 0.14);
     --muted: rgba(245, 243, 238, 0.70);
     --link: #8fb0e0;
-    --sample: #8fb0e0;
+    --sample: var(--fg);
   }
 }
 :root[data-theme="dark"] {
@@ -32,7 +32,7 @@
   --line: rgba(245, 243, 238, 0.14);
   --muted: rgba(245, 243, 238, 0.70);
   --link: #8fb0e0;
-  --sample: #8fb0e0;
+  --sample: var(--fg);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
