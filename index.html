@@ -8,68 +8,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <script>
-    // Apply a saved theme before first paint; otherwise CSS follows the OS.
-    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  </script>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js"></script>
   <style>
     @font-face { font-family: "Rondel"; src: url("assets/fonts/Rondel-Regular.woff2") format("woff2"); font-display: swap; }
     @font-face { font-family: "Rondel Ring"; src: url("assets/fonts/RondelRing-Regular.woff2") format("woff2"); font-display: swap; }
     @font-face { font-family: "Rondel Coin"; src: url("assets/fonts/RondelCoin-Regular.woff2") format("woff2"); font-display: swap; }
     @font-face { font-family: "Fjellrune"; src: url("assets/fonts/Fjellrune-Regular.woff2") format("woff2"); font-display: swap; }
-
-    :root {
-      --darknavy: #0d1b2a;
-      --offwhite: #f5f3ee;
-      --denim: #3b5b8c;
-      --red: #d72638;
-      /* Light */
-      --bg: var(--offwhite);
-      --fg: var(--darknavy);
-      --card: #ffffff;
-      --line: rgba(13, 27, 42, 0.14);
-      --muted: rgba(13, 27, 42, 0.68);
-      --link: var(--denim);
-      --sample: var(--denim);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: var(--darknavy);
-        --fg: var(--offwhite);
-        --card: #13263a;
-        --line: rgba(245, 243, 238, 0.14);
-        --muted: rgba(245, 243, 238, 0.70);
-        --link: #8fb0e0;
-        --sample: #7d9fd4;
-      }
-    }
-    :root[data-theme="dark"] {
-      --bg: var(--darknavy);
-      --fg: var(--offwhite);
-      --card: #13263a;
-      --line: rgba(245, 243, 238, 0.14);
-      --muted: rgba(245, 243, 238, 0.70);
-      --link: #8fb0e0;
-      --sample: #7d9fd4;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.55;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
     .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-
-    header { padding: 5rem 0 2.5rem; text-align: center; }
+    .hero { padding: 4rem 0 2.5rem; text-align: center; }
     .banner {
       font-family: "Dancing Script", cursive;
       font-size: clamp(4rem, 16vw, 8rem);
       font-weight: 700;
       line-height: 1;
-      color: var(--denim);
+      color: var(--link);
     }
     .banner::after { content: "."; color: var(--red); }
     .tagline {
@@ -79,7 +32,6 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-
     h2.section {
       font-size: 0.8rem;
       letter-spacing: 0.25em;
@@ -91,7 +43,6 @@
       gap: 0.75rem;
     }
     h2.section::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 1.5rem; }
     .card {
       background: var(--card);
@@ -106,7 +57,6 @@
     }
     .card h3 { font-size: 1.35rem; display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
     .ver { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
-
     .sample { color: var(--sample); line-height: 1.15; overflow-wrap: anywhere; }
     .sample .big { font-size: clamp(2.5rem, 9vw, 4rem); }
     .sample .row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.5rem; }
@@ -116,12 +66,10 @@
     .ring { font-family: "Rondel Ring", sans-serif; }
     .coin { font-family: "Rondel Coin", sans-serif; }
     .fjell { font-family: "Fjellrune", sans-serif; }
-
     .card p { color: var(--muted); }
     .facts { list-style: none; display: grid; gap: 0.35rem; font-size: 0.92rem; color: var(--muted); }
     .facts li::before { content: "— "; color: var(--red); }
     code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; color: var(--fg); }
-
     .links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; padding-top: 0.5rem; }
     .btn {
       display: inline-block;
@@ -137,8 +85,6 @@
     .btn.primary { background: var(--denim); color: var(--offwhite); }
     .btn:hover { border-color: var(--red); }
     .btn.primary:hover { background: var(--red); border-color: var(--red); }
-    .btn:focus-visible, .toggle:focus-visible, footer a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-
     footer {
       margin: 4rem 0 2.5rem;
       padding-top: 1.5rem;
@@ -151,44 +97,27 @@
       justify-content: space-between;
     }
     footer a { color: var(--link); }
-
-    .toggle {
-      position: fixed;
-      top: 1.25rem;
-      right: 1.25rem;
-      z-index: 10;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.75rem;
-      height: 2.75rem;
-      background: transparent;
-      border: none;
-      color: var(--denim);
-      cursor: pointer;
-      border-radius: 6px;
-      transition: transform 0.2s ease;
-    }
-    .toggle:hover { transform: scale(1.1); }
-    .toggle svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
-    /* Show the icon of the mode you would switch to */
-    .toggle .icon-sun { display: none; }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .toggle .icon-sun { display: block; }
-      :root:not([data-theme="light"]) .toggle .icon-moon { display: none; }
-    }
-    :root[data-theme="dark"] .toggle .icon-sun { display: block; }
-    :root[data-theme="dark"] .toggle .icon-moon { display: none; }
   </style>
 </head>
 <body>
-  <button class="toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
-    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-13a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zm0 19a1 1 0 0 1-1-1v-2a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zM4.93 6.34a1 1 0 0 1-.7-.29L2.81 4.63a1 1 0 0 1 1.42-1.42l1.41 1.42a1 1 0 0 1-.71 1.71zm14.14 14.14a1 1 0 0 1-.7-.29l-1.42-1.42a1 1 0 0 1 1.42-1.41l1.41 1.41a1 1 0 0 1-.71 1.71zM3 13H1a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2zm20 0h-2a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2zM3.52 20.48a1 1 0 0 1-.71-1.71l1.42-1.42a1 1 0 0 1 1.41 1.42l-1.41 1.41a1 1 0 0 1-.71.3zM17.66 6.34a1 1 0 0 1-.71-1.71l1.41-1.42a1 1 0 0 1 1.42 1.42l-1.42 1.42a1 1 0 0 1-.7.29z"/></svg>
-  </button>
+  <header class="site-header">
+    <div class="inner">
+      <a class="site-logo" href="./" aria-label="rv — home">rv</a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="./" aria-current="page">Typefaces</a>
+        <a href="rondel.html">Rondel</a>
+        <a href="fjellrune.html">Fjellrune</a>
+      </nav>
+      <span class="spacer"></span>
+      <button class="toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-13a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zm0 19a1 1 0 0 1-1-1v-2a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zM4.93 6.34a1 1 0 0 1-.7-.29L2.81 4.63a1 1 0 0 1 1.42-1.42l1.41 1.42a1 1 0 0 1-.71 1.71zm14.14 14.14a1 1 0 0 1-.7-.29l-1.42-1.42a1 1 0 0 1 1.42-1.41l1.41 1.41a1 1 0 0 1-.71 1.71zM3 13H1a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2zm20 0h-2a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2zM3.52 20.48a1 1 0 0 1-.71-1.71l1.42-1.42a1 1 0 0 1 1.41 1.42l-1.41 1.41a1 1 0 0 1-.71.3zM17.66 6.34a1 1 0 0 1-.71-1.71l1.41-1.42a1 1 0 0 1 1.42 1.42l-1.42 1.42a1 1 0 0 1-.7.29z"/></svg>
+      </button>
+    </div>
+  </header>
 
   <div class="wrap">
-    <header>
+    <header class="hero">
       <div class="banner">rv</div>
       <p class="tagline">Open-source typefaces</p>
     </header>
@@ -215,7 +144,7 @@
             <li>Submitted to Google Fonts</li>
           </ul>
           <div class="links">
-            <a class="btn primary" href="https://q78717.github.io/font-rondel/">Specimen</a>
+            <a class="btn primary" href="rondel.html">Specimen</a>
             <a class="btn" href="https://github.com/q78717/font-rondel/releases/latest">Download</a>
             <a class="btn" href="https://github.com/q78717/font-rondel">Source</a>
           </div>
@@ -237,7 +166,7 @@
             <li>Google Fonts Latin Core; best at 28&nbsp;px and up</li>
           </ul>
           <div class="links">
-            <a class="btn primary" href="https://q78717.github.io/font-fjellrune/">Specimen</a>
+            <a class="btn primary" href="fjellrune.html">Specimen</a>
             <a class="btn" href="https://github.com/q78717/font-fjellrune/releases/latest">Download</a>
             <a class="btn" href="https://github.com/q78717/font-fjellrune">Source</a>
           </div>
@@ -251,18 +180,5 @@
       <a href="coming-soon.html">Previous page</a>
     </footer>
   </div>
-
-  <script>
-    (function () {
-      var root = document.documentElement;
-      document.getElementById("themeToggle").addEventListener("click", function () {
-        var current = root.getAttribute("data-theme") ||
-          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        var next = current === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        try { localStorage.setItem("theme", next); } catch (e) {}
-      });
-    })();
-  </script>
 </body>
 </html>
