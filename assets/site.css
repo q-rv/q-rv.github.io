@@ -72,6 +72,8 @@ body {
   line-height: 1;
   color: var(--fg);
   text-decoration: none;
+  /* Script glyphs sit low in their line box; lift so the ink centres with the nav text. */
+  transform: translateY(-0.125em);
 }
 .site-logo::after { content: "."; color: var(--red); }
 .site-nav { display: flex; gap: 1.25rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
@@ -82,10 +84,12 @@ body {
   font-weight: 500;
   white-space: nowrap;
   padding: 0.25rem 0;
-  border-bottom: 2px solid transparent;
+  position: relative;
 }
+/* Underline drawn inside the padding so it doesn't push the text off-centre. */
+.site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: transparent; }
 .site-nav a:hover { color: var(--link); }
-.site-nav a[aria-current="page"] { border-bottom-color: var(--red); }
+.site-nav a[aria-current="page"]::after { background: var(--red); }
 .site-header .spacer { flex: 1; }
 .site-header .ext {
   color: var(--muted);
