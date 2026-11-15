@@ -22,7 +22,12 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     var frame = document.querySelector(".specimen-frame");
-    if (frame) frame.addEventListener("load", function () { syncFrame(frame); });
+    if (frame) {
+      frame.addEventListener("load", function () { syncFrame(frame); });
+      window.addEventListener("message", function (e) {
+        if (e.origin === SPECIMEN_ORIGIN && e.data && e.data.type === "rv-theme-ready") syncFrame(frame);
+      });
+    }
 
     var btn = document.getElementById("themeToggle");
     if (!btn) return;

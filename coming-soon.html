@@ -106,18 +106,16 @@
       const root = document.documentElement;
       const btn = document.getElementById("themeToggle");
 
-      function apply(theme) {
-        root.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-      }
-
-      const saved = localStorage.getItem("theme");
+      let saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
       const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-      apply(saved || (prefersLight ? "light" : "dark"));
+      // Show the saved choice, else follow the OS without saving it.
+      root.setAttribute("data-theme", saved === "light" || saved === "dark" ? saved : (prefersLight ? "light" : "dark"));
 
       btn.addEventListener("click", function () {
         const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        apply(next);
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
       });
     })();
   </script>
