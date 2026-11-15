@@ -70,7 +70,7 @@ body {
   font-weight: 700;
   font-size: 2rem;
   line-height: 1;
-  color: var(--link);
+  color: var(--fg);
   text-decoration: none;
 }
 .site-logo::after { content: "."; color: var(--red); }
@@ -101,14 +101,13 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   flex: none;
-  background: transparent;
-  border: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
   color: var(--link);
   cursor: pointer;
   border-radius: 6px;
-  transition: transform 0.2s ease;
 }
-.toggle:hover { transform: scale(1.1); }
+.toggle:hover { color: var(--red); }
 .toggle svg { width: 1.4rem; height: 1.4rem; fill: currentColor; }
 /* Show the icon of the mode you would switch to. */
 .toggle .icon-sun { display: none; }

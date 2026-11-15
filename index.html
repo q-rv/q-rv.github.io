@@ -22,7 +22,7 @@
       font-size: clamp(4rem, 16vw, 8rem);
       font-weight: 700;
       line-height: 1;
-      color: var(--link);
+      color: var(--fg);
     }
     .banner::after { content: "."; color: var(--red); }
     .tagline {
@@ -47,8 +47,6 @@
     .card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-top: 4px solid var(--denim);
-      border-radius: 10px;
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
@@ -60,7 +58,7 @@
     .sample { color: var(--sample); line-height: 1.15; overflow-wrap: anywhere; }
     .sample .big { font-size: clamp(2.5rem, 9vw, 4rem); }
     .sample .row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.5rem; }
-    .sample .mono { font-size: clamp(3rem, 10vw, 4.5rem); color: var(--red); }
+    .sample .mono { font-size: clamp(3rem, 10vw, 4.5rem); }
     .sample .styles { font-size: clamp(2rem, 7vw, 2.75rem); }
     .rondel { font-family: "Rondel", sans-serif; }
     .ring { font-family: "Rondel Ring", sans-serif; }
@@ -74,16 +72,15 @@
     .btn {
       display: inline-block;
       padding: 0.55rem 1rem;
-      border-radius: 6px;
-      border: 1px solid var(--denim);
-      color: var(--link);
+      border: 1px solid var(--fg);
+      color: var(--fg);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.92rem;
       transition: background 0.2s ease, color 0.2s ease;
     }
     .btn.primary { background: var(--fg); border-color: var(--fg); color: var(--bg); }
-    .btn:hover { border-color: var(--red); }
+    .btn:hover { border-color: var(--link); color: var(--link); }
     .btn.primary:hover { background: var(--link); border-color: var(--link); color: var(--bg); }
     footer {
       margin: 4rem 0 2.5rem;
@@ -96,7 +93,8 @@
       gap: 0.5rem 1.5rem;
       justify-content: space-between;
     }
-    footer a { color: var(--link); }
+    footer a { color: var(--fg); text-underline-offset: 3px; }
+    footer a:hover { color: var(--link); }
   </style>
 </head>
 <body>
