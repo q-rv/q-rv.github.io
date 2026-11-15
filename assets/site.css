@@ -66,14 +66,23 @@ body {
   gap: 1.5rem;
 }
 .site-logo {
+  /* Badge: disc in the text colour, letters in the background colour. */
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--fg);
+  color: var(--bg);
   font-family: "Dancing Script", cursive;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.55rem;
   line-height: 1;
-  color: var(--fg);
   text-decoration: none;
-  /* Script glyphs sit low in their line box; lift so the ink centres with the nav text. */
-  transform: translateY(-0.125em);
+  /* Centre the script ink (it sits low and left in its box) within the disc. */
+  padding: 0 0 6px 2.9px;
 }
 .site-logo::after { content: "."; color: var(--red); }
 .site-nav { display: flex; gap: 1.25rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
