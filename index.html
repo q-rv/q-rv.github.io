@@ -36,7 +36,7 @@
       font-size: 0.8rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--red);
       margin: 1rem 0 1.25rem;
       display: flex;
       align-items: center;
@@ -47,6 +47,7 @@
     .card {
       background: var(--card);
       border: 1px solid var(--line);
+      border-top: 3px solid var(--red);
       padding: 1.75rem;
       display: flex;
       flex-direction: column;
@@ -55,10 +56,11 @@
     }
     .card h3 { font-size: 1.35rem; display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
     .ver { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+    .card h3 .dot { color: var(--red); margin-left: -0.6rem; }
     .sample { color: var(--sample); line-height: 1.15; overflow-wrap: anywhere; }
     .sample .big { font-size: clamp(2.5rem, 9vw, 4rem); }
     .sample .row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.5rem; }
-    .sample .mono { font-size: clamp(3rem, 10vw, 4.5rem); }
+    .sample .mono { font-size: clamp(3rem, 10vw, 4.5rem); color: var(--red); }
     .sample .styles { font-size: clamp(2rem, 7vw, 2.75rem); }
     .rondel { font-family: "Rondel", sans-serif; }
     .ring { font-family: "Rondel Ring", sans-serif; }
@@ -80,8 +82,8 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
     .btn.primary { background: var(--fg); border-color: var(--fg); color: var(--bg); }
-    .btn:hover { border-color: var(--link); color: var(--link); }
-    .btn.primary:hover { background: var(--link); border-color: var(--link); color: var(--bg); }
+    .btn:hover { border-color: var(--red); color: var(--red); }
+    .btn.primary:hover { background: var(--red); border-color: var(--red); color: var(--offwhite); }
     footer {
       margin: 4rem 0 2.5rem;
       padding-top: 1.5rem;
@@ -94,7 +96,7 @@
       justify-content: space-between;
     }
     footer a { color: var(--fg); text-underline-offset: 3px; }
-    footer a:hover { color: var(--link); }
+    footer a:hover { color: var(--red); }
   </style>
 </head>
 <body>
@@ -124,7 +126,7 @@
       <div class="grid">
 
         <article class="card" aria-labelledby="rondel-title">
-          <h3 id="rondel-title">Rondel <span class="ver">v1.600 · 3 styles</span></h3>
+          <h3 id="rondel-title">Rondel<span class="dot">.</span> <span class="ver">v1.600 · 3 styles</span></h3>
           <div class="sample" aria-hidden="true">
             <div class="big rondel">Rondel</div>
             <div class="row">
@@ -148,7 +150,7 @@
         </article>
 
         <article class="card" aria-labelledby="fjell-title">
-          <h3 id="fjell-title">Fjellrune <span class="ver">v2.000</span></h3>
+          <h3 id="fjell-title">Fjellrune<span class="dot">.</span> <span class="ver">v2.000</span></h3>
           <div class="sample" aria-hidden="true">
             <div class="big fjell">Fjellrune</div>
             <div class="row">

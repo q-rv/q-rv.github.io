@@ -97,7 +97,7 @@ body {
 }
 /* Underline drawn inside the padding so it doesn't push the text off-centre. */
 .site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: transparent; }
-.site-nav a:hover { color: var(--link); }
+.site-nav a:hover { color: var(--red); }
 .site-nav a[aria-current="page"]::after { background: var(--red); }
 .site-header .spacer { flex: 1; }
 .site-header .ext {
@@ -106,7 +106,7 @@ body {
   text-decoration: none;
   white-space: nowrap;
 }
-.site-header .ext:hover { color: var(--link); }
+.site-header .ext:hover { color: var(--red); }
 .toggle {
   display: inline-flex;
   align-items: center;
