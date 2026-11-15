@@ -22,7 +22,7 @@
     --line: rgba(245, 243, 238, 0.14);
     --muted: rgba(245, 243, 238, 0.70);
     --link: #8fb0e0;
-    --sample: #7d9fd4;
+    --sample: #8fb0e0;
   }
 }
 :root[data-theme="dark"] {
@@ -32,7 +32,7 @@
   --line: rgba(245, 243, 238, 0.14);
   --muted: rgba(245, 243, 238, 0.70);
   --link: #8fb0e0;
-  --sample: #7d9fd4;
+  --sample: #8fb0e0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
